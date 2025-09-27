@@ -1,47 +1,32 @@
-# TA2CAY FM Radyo & DHT11 Hava Durumu İstasyonu
+# TA2CAY FM Radyo & DHT11 Hava Durumu İstasyonu v2.0
 
-Bu proje, ESP32 mikrodenetleyici, 1.8" ST7735 TFT ekran, TEA5767 FM Radyo modülü ve DHT11/22 sıcaklık/nem sensörünü birleştirerek taşınabilir bir radyo ve çevre istasyonu oluşturur.
-İnternet bağlantısı  gerektirmez. 
+Bu sürüm ile birlikte proje ciddi geliştirmeler ve yeni özellikler kazandı.  
 
-## Özellikler
+## Yenilikler v2.0
 
-- **FM Radyo:** Döner enkoder ile frekans ayarlama (87.5 MHz - 108.0 MHz).
-- **Hava Durumu:** DHT11/22 sensöründen anlık sıcaklık ve nem okuma.
-- **RTC Saat:** DS1302 modülü ile güncel saat ve tarih gösterimi.
-- **Görselleştirme:** Sinyal gücü ve spektrum analizörü simülasyonu.
-- **Ekranlar:** Ana ekran (Frekans, Temel Bilgiler) ve Detay Ekranı (Min/Max, Sistem Bilgileri).
+- **Hafıza Kanalları:**  
+  - 8 favori frekans kaydı.  
+  - Uzun basma (5 saniye) ile mevcut frekansı hafızaya ekleme.  
 
-## Donanım Bağlantıları (ESP32)
+- **Detay Ekranı:**  
+  - Min/Max sıcaklık ve nem değerleri.  
+  - Sistem bilgisi: RAM, CPU frekansı ve uptime.  
 
-| Modül | ESP32 Pini | Açıklama |
-| :--- | :--- | :--- |
-| **TFT ST7735** | | |
-| RST | 16 | Reset |
-| DC | 17 | Data/Command |
-| CS | 5 | Chip Select |
-| **Döner Enkoder** | | |
-| CLK | 32 | Clock Pin |
-| DT | 33 | Data Pin |
-| SW | 25 | Switch (Buton) |
-| **TEA5767 (Radyo)** | | |
-| SDA | 21 | I2C Data |
-| SCL | 22 | I2C Clock |
-| **DHT11/22** | 4 | Data Pini |
-| **DS1302 RTC** | | |
-| DAT | 27 | Data Pin |
-| CLK | 26 | Clock Pin |
-| RST | 14 | Reset Pin |
+- **Gelişmiş Spektrum Animasyonu:**  
+  - Frekans ve sinyal gücü görselleştirme.  
 
-## Kullanılan Kütüphaneler
+- **Gece Modu:**  
+  - 22:00 – 07:00 arası kırmızı tema ve renk animasyonu.  
 
-Bu projeyi derlemek için aşağıdaki kütüphanelerin kurulu olması gerekmektedir:
-- Adafruit GFX
-- Adafruit ST7735
-- AiEsp32RotaryEncoder
-- TEA5767Radio
-- DHT sensor library
-- RtcDS1302 (Makuna Versiyonu önerilir)
+- **Sıcaklık ve Nem Trend Göstergesi:**  
+  - Basit + / - / = ile anlık trend bilgisi.  
 
-## Lisans
+- **Splash Screen:**  
+  - Yükleme animasyonu ile kullanıcı dostu açılış.  
 
-Bu proje TA2CAY tarafından açık kaynak (Public) olarak yayınlanmıştır.
+- **RTC Saat ve Tarih:**  
+  - DS1302 modülü ile güncel saat ve tarih gösterimi.  
+  - **Önemli:** İlk kurulumda saat ve tarih kodlardan ayarlanmalıdır:
+```cpp
+// RtcDateTime compiled = RtcDateTime(YIL, AY, GÜN, SAAT, DAKIKA, SANIYE);
+// Rtc.SetDateTime(compiled);
