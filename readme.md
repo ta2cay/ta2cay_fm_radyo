@@ -1,8 +1,6 @@
 # TA2CAY FM Radyo & DHT11 Hava Durumu İstasyonu v2.0
 
-Bu sürüm ile proje ciddi geliştirmeler ve yeni özellikler kazandı. Artık hem radyo keyfi hem de çevresel veriler çok daha zengin şekilde takip edilebiliyor.
-
----
+[![TA2CAY FM Radyo & Hava Durumu İstasyonu Tanıtımı](https://img.youtube.com/vi/myVpQR3ZlVU/0.jpg)](https://www.youtube.com/watch?v=myVpQR3ZlVU)
 
 ## 🆕 Yenilikler v2.0
 
