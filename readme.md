@@ -76,6 +76,7 @@ Kısa basma: Seçili kanala git (ana ekrana döner)
 
 ## 📋 Gerekli Kütüphaneler
 
+```cpp
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7735.h>
@@ -85,10 +86,12 @@ Kısa basma: Seçili kanala git (ana ekrana döner)
 #include <DHT.h>
 #include <RtcDS1302.h>
 #include <EEPROM.h>
+```
 
 RTC Saat ve Tarih Kurulumu
 Proje DS1302 RTC modülü ile çalışır ve ilk kurulumda saat ve tarih koddan ayarlanmalıdır.
 Kod Örneği:
+```cpp
 #include <RtcDS1302.h>
 ThreeWire myWire(27, 26, 14); // DAT, CLK, RST
 RtcDS1302<ThreeWire> Rtc(myWire);
@@ -104,7 +107,7 @@ void setup() {
   // RtcDateTime compiled = RtcDateTime(2025, 9, 28, 15, 30, 0);
   // Rtc.SetDateTime(compiled);
 }
-
+```
 Kullanım Kılavuzu
 Hafıza İşlemleri
 
