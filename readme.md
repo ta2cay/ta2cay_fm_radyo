@@ -75,7 +75,7 @@ Kısa basma: Seçili kanala git (ana ekrana döner)
 | **Rotary Encoder** | CLK:32, DT:33, SW:25 | Encoder & Buton |
 
 ## 📋 Gerekli Kütüphaneler
-```cpp
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7735.h>
