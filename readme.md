@@ -108,42 +108,62 @@ void setup() {
   // Rtc.SetDateTime(compiled);
 }
 ```
-Kullanım Kılavuzu
-Hafıza İşlemleri
+# KULLANIM KILAVUZU
 
-Kanal Kaydetme: Ana ekranda istediğiniz frekansa gidin, encoder butonunu 3 saniye basılı tutun
-Kanala Gitme: Hafıza ekranında encoder ile istediğiniz kanalı seçin, kısa basın
-Kanal Gezinme: Hafıza ekranında encoder çevirerek kayıtlı kanallar arasında gezinin
-Tümünü Silme: Hafıza ekranında encoder butonunu 3 saniye basılı tutun
+Bu cihazın/yazılımın temel işlevleri ve kullanım adımları aşağıda özetlenmiştir.
 
-Ekran Geçişleri
+## Hafıza (Kanal) İşlemleri
 
-Kısa basma ile ekranlar arası sırayla geçiş: Ana → Detay → Hafıza → Ana
-Ana ekran frekans ayarlama için encoder kullanın
-Detay ekran sistem bilgilerini gösterir
-Hafıza ekran kanal yönetimi için kullanın
+| İşlem | Adım |
+| :--- | :--- |
+| **Kanal Kaydetme** | Ana ekranda istenen frekansa gidin. **Encoder butonunu 3 saniye basılı tutun.** |
+| **Kaydedilen Kanala Gitme** | Hafıza ekranında Encoder ile kanalı seçin ve **Encoder butonuna kısa basın.** |
+| **Kanal Gezinme** | Hafıza ekranındayken **Encoder'ı çevirin.** |
+| **Tüm Hafızayı Silme** | Hafıza ekranındayken **Encoder butonunu 3 saniye basılı tutun.** |
 
- v2.0'dan v2.1'e Yükseltme
+---
 
-Encoder boundaries sistemi eklendi
-3 saniye uzun basma (5 saniyeden düşürüldü)
-UI optimizasyonu yapıldı
-Hafıza navigasyonu tamamen yenilendi
-Daha stabil buton kontrolü
+## Ekran Geçişleri ve Kontrol
 
-Sorun Giderme
-Encoder Çalışmıyor
+Cihaz üç temel ekrandan oluşur.
 
-Pin bağlantılarını kontrol edin: CLK:32, DT:33, SW:25
-Pull-up dirençlerinin bağlı olduğundan emin olun.
+| Ekran | Geçiş/Kontrol | Açıklama |
+| :--- | :--- | :--- |
+| **Ekranlar Arası Geçiş** | **Encoder butonuna kısa basın.** | Geçiş sırası: **Ana $\rightarrow$ Detay $\rightarrow$ Hafıza $\rightarrow$ Ana**. |
+| **Ana Ekran (Frekans Ayarı)** | **Encoder'ı çevirin.** | Frekans ayarlama ve kanal kaydetme için kullanılır. |
+| **Detay Ekran** | Bilgi amaçlıdır. | Sistem bilgilerini gösterir. |
+| **Hafıza Ekranı** | Kanal yönetimi için kullanılır. | Kayıtlı kanalları yönetmenizi sağlar. |
 
-Kanal Kaydedilmiyor
+---
 
-Ana ekranda olduğunuzdan emin olun.
-3 saniye tam süre basılı tutun.
-Serial monitor'den debug mesajlarını kontrol edin.
+# v2.0'dan v2.1'e Yükseltme Notları
 
-RTC Yanlış Saat Gösteriyor
+Bu sürüm (v2.1), önemli iyileştirmeler ve değişiklikler içermektedir:
 
-DS1302'nin pil bağlantısını kontrol edin.
-Kod içinde tarih/saat ayarlama satırlarını aktif edin.
+* **Encoder Sınırları (Boundaries) Sistemi:** Encoder'ın yanlışlıkla aşırı değerlere çıkmasını engelleyen sistem eklendi.
+* **Uzun Basma Süresi Değişikliği:** Uzun basma algılama süresi 5 saniyeden **3 saniyeye düşürüldü**.
+* **Kullanıcı Arayüzü (UI) Optimizasyonu:** Kullanıcı deneyimini iyileştiren UI düzenlemeleri yapıldı.
+* **Hafıza Navigasyonu:** Kanal seçimi ve yönetimi için hafıza ekranı arayüzü **tamamen yenilendi**.
+* **Buton Kontrolü:** Daha stabil ve güvenilir bir buton (encoder) kontrol mekanizması sağlandı.
+
+---
+
+# SORUN GİDERME (Troubleshooting)
+
+Karşılaşabileceğiniz yaygın sorunlar ve çözüm önerileri:
+
+## Encoder Çalışmıyor
+
+1.  **Pin Bağlantılarını kontrol edin:** CLK:32, DT:33, SW:25.
+2.  **Pull-up dirençlerinin** doğru şekilde bağlı olduğundan emin olun.
+
+## Kanal Kaydedilmiyor
+
+1.  **Ana ekranda** olduğunuzdan emin olun.
+2.  **3 saniye** süreyle tam olarak basılı tutun (uzun basma gereklidir).
+3.  Sorun devam ederse, `Serial Monitor` üzerinden **hata ayıklama (debug)** mesajlarını kontrol edin.
+
+## RTC Yanlış Saat Gösteriyor
+
+1.  DS1302 **RTC (Gerçek Zaman Saati)** pil bağlantısını kontrol edin.
+2.  Kod içindeki tarih/saat ayarlama satırlarını **aktif** edin ve zaman ayarını yeniden yapın.
