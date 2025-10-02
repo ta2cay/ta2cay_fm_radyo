@@ -86,3 +86,28 @@ Bu projenin derlenebilmesi ve çalışabilmesi için Arduino IDE'ye aşağıdaki
 #include <DHT.h>
 #include <RtcDS1302.h>
 #include <EEPROM.h>
+
+## ⏰ RTC Saat ve Tarih Kurulumu
+
+Projeniz DS1302 RTC modülü kullandığı için, cihazı ilk kez başlattıktan veya pil değişimi yaptıktan sonra saat ve tarih ayarını yapmanız gerekir.
+
+**Kurulum Adımları:**
+
+1.  `setup()` fonksiyonunun içine gidin.
+2.  Aşağıdaki örnek kodu, güncel tarih ve saat bilgilerinizi girecek şekilde düzenleyin.
+3.  Kodu ESP32'ye yükleyin.
+4.  Saat ayarı yapıldıktan sonra, bu iki satırı yoruma alın (`//`) ve kodu tekrar yükleyin. Aksi takdirde, cihaz her başladığında zamanı sıfırlayacaktır.
+
+```cpp
+#include <RtcDS1302.h>
+ThreeWire myWire(27, 26, 14); // DAT, CLK, RST pinleri
+RtcDS1302<ThreeWire> Rtc(myWire);
+
+void setup() {
+  Rtc.Begin();
+  
+  // SADECE İLK KURULUMDA SAATİ AYARLAMAK İÇİN KULLANIN
+  // Örnek: 2 Ekim 2025, 19:38:00
+  // RtcDateTime compiled = RtcDateTime(2025, 10, 2, 19, 38, 0);
+  // Rtc.SetDateTime(compiled);
+}
