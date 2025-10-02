@@ -86,6 +86,7 @@ Bu projenin derlenebilmesi ve çalışabilmesi için Arduino IDE'ye aşağıdaki
 #include <DHT.h>
 #include <RtcDS1302.h>
 #include <EEPROM.h>
+```cpp
 
 ## ⏰ RTC Saat ve Tarih Kurulumu
 
@@ -111,3 +112,5 @@ void setup() {
   // RtcDateTime compiled = RtcDateTime(2025, 10, 2, 19, 38, 0);
   // Rtc.SetDateTime(compiled);
 }
+
+```
