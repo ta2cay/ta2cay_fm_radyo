@@ -86,7 +86,7 @@ Bu projenin derlenebilmesi ve çalışabilmesi için Arduino IDE'ye aşağıdaki
 #include <DHT.h>
 #include <RtcDS1302.h>
 #include <EEPROM.h>
-```cpp
+```
 
 ## ⏰ RTC Saat ve Tarih Kurulumu
 
