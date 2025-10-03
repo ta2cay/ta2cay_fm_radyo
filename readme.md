@@ -4,7 +4,8 @@
 
 Bu proje, **ESP32** mikrodenetleyici ve **TEA5767 FM** radyo modülünü birleştirerek, döner enkoder (Rotary Encoder) ile kontrol edilen, saat, tarih ve DHT11 sensörü üzerinden sıcaklık/nem bilgisi gösterebilen kapsamlı bir masaüstü radyo sistemi sunar.
 
----
+[![TA2CAY FM Radyo - Video](https://img.youtube.com/vi/joejpaq5zRA/maxresdefault.jpg)](https://www.youtube.com/watch?v=joejpaq5zRA)
+
 
 ## 🚀 Ana Özellikler (v3.0)
 
