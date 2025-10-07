@@ -72,6 +72,17 @@ Proje, temel olarak 3 ana ekran modu kullanır:
 | **Rotary Encoder**| `CLK: 32`, `DT: 33`, `SW: 25` | Frekans ve Menü Kontrolü |
 
 ---
+---
+## ⚙️ Performans ve Mimari Detayları
+
+Bu projenin stabil ve hızlı çalışmasını sağlayan teknik yaklaşımlar ve optimizasyonlar:
+
+* **ISR Tabanlı Encoder:** Döner enkoder, ESP32'nin **Kesme (Interrupt Service Routine - ISR)** özelliği ile okunur. Bu sayede, enkoder işlemi **`loop()`** döngüsünü asla bloklamaz ve frekans ayarı sırasında radyo akışında takılma yaşanmaz.
+* **Akıllı Ekran Yenileme:** Ana ekranda (saat, uptime, sıcaklık gibi) **`updateMainScreenTop()`** fonksiyonu kullanılır. Bu fonksiyon, ekranın tamamını değil, **yalnızca değişen küçük bölgeleri** yeniden çizer. Bu, ekran titremesini engeller ve CPU yükünü minimumda tutar.
+* **Anlık Sistem Tanılaması:** Ana ekranda **Kullanılabilir RAM** (kB) ve **CPU Hızı** (MHz) gibi sistem bilgileri gösterilir. Bu, cihazın stabil çalışıp çalışmadığını izlemeyi sağlar.
+* **Dinamik Spektrum Hızı:** Görsel spektrum, sürekli canlılık sağlamak için diğer ekran güncellemelerinden bağımsız olarak her **150 milisaniyede bir** güncellenir.
+* **Akıllı Buton Mantığı:** Hafıza ekranında, butona kısa basma işlevi, seçili kanalın dolu olup olmamasına göre otomatik olarak **Frekansa Gitme** veya **Kayıt Onayı Verme** arasında geçiş yapar (Kullanıcı Deneyimi Optimizasyonu).
+---
 
 ## 📚 Gerekli Kütüphaneler
 
